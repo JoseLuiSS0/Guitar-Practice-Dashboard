@@ -1,0 +1,254 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #121212;
+  color: #f8f8f8;
+  line-height: 1.6;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Main layout */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 20px;
+  align-items: start;
+}
+
+.layout .left { display: grid; gap: 20px; }
+.layout .right { display: grid; gap: 20px; }
+
+/* Cards */
+.card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card h2 { margin-bottom: 8px; }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.card p {
+  opacity: 0.85;
+}
+
+/* Top navigation inside hero */
+.top-nav {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.nav-links a:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* Hero tweaks */
+.hero { height: 48vh; }
+.hero-text h1 { font-size: 2.1rem; }
+
+/* Forms and buttons */
+.log-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.log-form input[type="text"],
+.log-form input[type="number"] {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  color: #f8f8f8;
+  padding: 8px 10px;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.btn {
+  background: linear-gradient(90deg,#ff8a00,#ff3d00);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn.small { padding: 6px 8px; font-size: 0.85rem; }
+
+/* Auth area */
+.auth-area { display:flex; align-items:center; gap:8px; }
+
+/* Recent logs tweaks */
+.logs-list { list-style: none; margin-top: 10px; padding-left: 0; }
+.logs-list .log-item { display:flex; justify-content:space-between; gap:10px; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.02); }
+.delete-btn { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: #fff; padding:4px 8px; border-radius:6px; cursor:pointer; }
+
+/* Make remove/delete buttons more visible and consistent */
+.remove, .delete-btn {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #ffd9c4;
+  padding: 6px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.remove:hover, .delete-btn:hover { background: rgba(255,138,0,0.12); color: #fff; transform: translateY(-1px); }
+
+/* Toast / undo UI */
+.toast-container {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+.toast {
+  background: linear-gradient(180deg,#222,#181818);
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+.toast .msg { flex: 1; font-size: 0.95rem; color: #e6e6e6; }
+.toast .undo { background: transparent; border: 1px solid rgba(255,255,255,0.08); color: #ffb48a; padding: 6px 8px; border-radius: 8px; cursor: pointer; }
+.toast .undo:hover { background: rgba(255,138,0,0.12); color:#fff; }
+.toast .close-toast { background: transparent; border: none; color: #9a9a9a; cursor: pointer; font-size: 1.1rem; }
+
+/* Editable lists */
+.goals-list, .gear-list { list-style: none; padding-left: 0; margin-top: 10px; }
+.goals-list li, .gear-list li { padding: 8px 0; display:flex; justify-content:space-between; gap:8px; align-items:center; }
+.goals-list .remove, .gear-list .remove { background: transparent; border: none; color: #ff6b6b; cursor: pointer; }
+.goals-controls, .gear-controls { display:flex; gap:8px; margin-top:8px; }
+
+/* Routine checked */
+.routine-list li.completed label { text-decoration: line-through; opacity: 0.8; }
+
+/* Auth modal */
+.auth-modal {
+  position: fixed; inset: 0; display:none; align-items:center; justify-content:center; z-index: 40;
+}
+.auth-modal .panel {
+  background: #0f0f0f; padding: 18px; border-radius: 10px; width: 320px; box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+.auth-modal input { width: 100%; padding: 8px; margin: 6px 0; border-radius: 8px; border:1px solid #232323; background:#121212; color:#fff }
+.auth-modal .row { display:flex; gap:8px; align-items:center; }
+.auth-modal .close { float:right; background:transparent; border:none; color:#fff; cursor:pointer }
+
+@media (max-width: 640px) {
+  .nav-inner { padding: 0 10px; }
+}
+
+.routine-list { margin-top: 12px; padding-left: 18px; }
+
+.chart-placeholder {
+  height: 120px;
+  background: linear-gradient(180deg,#161616,#1b1b1b);
+  border-radius: 8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #8a8a8a;
+  margin-top: 12px;
+}
+
+.chart-wrap { margin-top: 12px; }
+.chart-wrap canvas { width: 100% !important; height: auto !important; max-height: 260px; }
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .hero-text h1 { font-size: 1.6rem; }
+  .nav-links { display: none; }
+  .layout { grid-template-columns: 1fr; }
+  main { margin: 20px auto; }
+}

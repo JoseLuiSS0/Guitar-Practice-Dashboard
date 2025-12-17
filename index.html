@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Guitar Practice Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="hero">
+    <img src="guitar.jpg" alt="Electric guitar on a dark background">
+    <nav class="top-nav">
+      <div class="nav-inner">
+        <div class="brand">Guitar Dashboard</div>
+        <ul class="nav-links">
+          <li><a href="#log">Log</a></li>
+          <li><a href="#routine">Routine</a></li>
+          <li><a href="#progress">Progress</a></li>
+          <li><a href="#gear">Gear</a></li>
+        </ul>
+        <div class="auth-area">
+          <button id="auth-btn" class="btn small">Log in</button>
+        </div>
+      </div>
+    </nav>
+    <div class="hero-text">
+      <h1>Guitar Practice Dashboard</h1>
+      <p>Track your practice. Build consistency. Improve daily.</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="layout">
+      <div class="left">
+        <section id="log" class="card">
+      <h2>Practice Log</h2>
+      <p>Quickly add sessions with duration, focus area, and notes.</p>
+      <form class="log-form">
+        <input type="text" placeholder="Focus (scales, song, technique)">
+        <input type="number" placeholder="Minutes" min="1">
+        <button class="btn" type="button">Add</button>
+      </form>
+      <div class="recent-logs">
+        <h3>Recent Sessions</h3>
+        <ul class="logs-list"></ul>
+        <div class="summary"></div>
+      </div>
+    </section>
+
+      <section id="routine" class="card">
+      <h2>Daily Routine</h2>
+      <ol class="routine-list">
+        <li data-index="0"><label><input type="checkbox"> Warm-up (10 min) — chromatic exercises</label></li>
+        <li data-index="1"><label><input type="checkbox"> Technique (15 min) — alternate picking / legato</label></li>
+        <li data-index="2"><label><input type="checkbox"> Repertoire (20 min) — learn a section from a song</label></li>
+        <li data-index="3"><label><input type="checkbox"> Cool-down (5 min) — ear training</label></li>
+      </ol>
+    </section>
+
+      <section id="goals" class="card">
+        <h2>Goals</h2>
+        <div class="goals-edit">
+          <ul class="goals-list"></ul>
+          <div class="goals-controls">
+            <input class="new-goal" placeholder="New goal">
+            <button class="btn small add-goal">Add Goal</button>
+          </div>
+        </div>
+      </section>
+      </div>
+
+      <div class="right">
+      <section id="progress" class="card">
+      <h2>Progress</h2>
+      <p>Visualize streaks and total time.</p>
+      <div class="chart-wrap">
+        <canvas id="progressChart" width="400" height="240"></canvas>
+      </div>
+      <div class="chart-placeholder">(If Chart.js doesn't load, a summary will show here)</div>
+    </section>
+      <section id="gear" class="card">
+        <h2>Gear</h2>
+        <div class="gear-edit">
+          <ul class="gear-list"></ul>
+          <div class="gear-controls">
+            <input class="new-gear" placeholder="New gear (e.g. Fender Strat + .010)">
+            <button class="btn small add-gear">Add Gear</button>
+          </div>
+        </div>
+      </section>
+      </div>
+    </div>
+  </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- Toast container for undo actions -->
+<div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
